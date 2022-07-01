@@ -218,7 +218,7 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
 
                 return ( net, initial_marking, final_marking ,k,startTime,actualfilename,localfilename,explanation)
             elif flag == 1 :
-                explanation='a decrease in precision of choices structure'
+                explanation='a decrease in precision of choice structure'
 
                 startTime= k - windowSize + 1
 
@@ -275,7 +275,10 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
                             queuepair = queue[i][3]
                             if queuepair is None:
                                 logInqueue.append(queueTrace)
-                        explanation='a decrease in precision of concurrency or loops structure'
+                        if rootNodes[DD.index(max(DD))].operator=='+':
+                            explanation = 'a decrease in precision of concurrency structure'
+                        else:
+                            explanation = 'a decrease in precision of loop structure'
                         net, initial_marking, final_marking,localfilename = gen_new_net(net, initial_marking, final_marking, tree, logInqueue, [rootNodes[DD.index(max(DD))]],
                                 leaf2transitions,filterrate,startTime)
                         gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"})
