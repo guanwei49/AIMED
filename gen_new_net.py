@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from  Objects.process_tree.obj import ProcessTree
 from math import inf
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
@@ -10,11 +11,10 @@ from Discovery.inductive import algorithm as inductive_miner
 from pm4py.utils import get_properties
 from pm4py.visualization.petri_net.common import visualize
 from pm4py.objects.log.obj import EventLog, Trace
-
-from main import ROOT_DIR
 from utils import removeRedundantTransitions, get_leaves, reverse_net, get_path_to_leaf, log2X
 from sklearn.ensemble import IsolationForest
 
+ROOT_DIR = Path(__file__).parent
 visited=set()
 
 def getenabled_transitions(net,markings):

@@ -1,14 +1,14 @@
 import os.path
 from collections import deque
+from pathlib import Path
 from check_conformance import checkConformance
 from gen_new_net import gen_new_net
-from main import ROOT_DIR
 from utils import *
 from pm4py.visualization.petri_net.common import visualize
 from pm4py.objects.log.obj import EventLog
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
 count=0
-
+ROOT_DIR = Path(__file__).parent
 
 def initbasegraph(graphs, nowedges, appearSP):
     global count
