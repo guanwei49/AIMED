@@ -3,8 +3,9 @@ from collections import deque
 from check_conformance import checkConformance
 from gen_new_net import gen_new_net
 from utils import *
-
-
+from pm4py.visualization.petri_net.common import visualize
+from pm4py.objects.log.obj import EventLog
+from pm4py.visualization.petri_net import visualizer as pn_visualizer
 count=0
 
 

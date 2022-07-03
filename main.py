@@ -1,7 +1,6 @@
 import os.path
 from pathlib import Path
 from drift_detection import drift_detectionHelper2
-from utils import *
 from pm4py.objects.petri_net.importer import importer as pnml_importer
 from pm4py.objects.log.importer.xes import importer as xes_importer
 
