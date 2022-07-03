@@ -1,9 +1,5 @@
 import os.path
 from collections import deque
-
-from pypinyin import lazy_pinyin
-from werkzeug.utils import secure_filename
-
 from check_conformance import checkConformance
 from gen_new_net import gen_new_net
 from utils import *

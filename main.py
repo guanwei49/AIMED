@@ -1,18 +1,9 @@
-import json
 import os.path
-import sys
-import threading
 from pathlib import Path
-from pm4py.visualization.petri_net import visualizer as pn_visualizer
-from pm4py.objects.petri_net.importer import importer as pnml_importer
-from pm4py.objects.log.importer.xes import importer as xes_importer
-from pm4py.objects.petri_net import semantics
-from pypinyin import lazy_pinyin
-from werkzeug.utils import secure_filename
-
 from drift_detection import drift_detectionHelper2
 from utils import *
-
+from pm4py.objects.petri_net.importer import importer as pnml_importer
+from pm4py.objects.log.importer.xes import importer as xes_importer
 
 
 def drift_detection(logPath, netPath, windowSize =200,appearSP=40,disappearSP=20,alpha =0.2, beta =0.2, gamma = 5, filterrate=0.05):

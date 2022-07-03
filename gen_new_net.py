@@ -1,16 +1,10 @@
 import os
-
-from pypinyin import lazy_pinyin
-from werkzeug.utils import secure_filename
-
 from  Objects.process_tree.obj import ProcessTree
 from math import inf
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
 from pm4py.objects.petri_net import semantics
 from Objects.process_tree.obj import Operator
-from utils import random_filename
 from check_conformance import checkConformance
-from pm4py.visualization.process_tree import visualizer as pt_visualizer
 from Objects.conversion.process_tree import converter as pt_converter
 from Discovery.inductive import algorithm as inductive_miner
 from pm4py.utils import get_properties

@@ -1,24 +1,11 @@
 import os
 import uuid
 from math import inf
-from pm4py.visualization.petri_net import visualizer as pn_visualizer
-from pm4py.objects.petri_net.importer import importer as pnml_importer
-from pm4py.objects.log.importer.xes import importer as xes_importer
-from pm4py.objects.petri_net import semantics
 from pm4py.objects.petri_net.utils import petri_utils
 from pm4py.objects.petri_net.obj import PetriNet, Marking
 from Objects.conversion.wf_net import converter as wf_net_converter
 from Objects.process_tree.obj import Operator
-import  Objects.process_tree.obj as obj
 from stack import Stack
-from pm4py.visualization.process_tree import visualizer as pt_visualizer
-from Objects.conversion.process_tree import converter as pt_converter
-from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
-import  pm4py
-from Discovery.inductive import algorithm as inductive_miner
-from Discovery.inductive.parameters import Parameters
-from pm4py.visualization.petri_net.common import visualize
-from pm4py.objects.log.obj import EventLog, Trace ,Event
 from pm4py.util import xes_constants
 
 def log2X(log):
