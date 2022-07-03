@@ -7,6 +7,7 @@ from utils import *
 from pm4py.visualization.petri_net.common import visualize
 from pm4py.objects.log.obj import EventLog
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
+from Objects.process_tree.obj import Operator
 count=0
 ROOT_DIR = Path(__file__).parent
 
@@ -273,7 +274,7 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
                             queuepair = queue[i][3]
                             if queuepair is None:
                                 logInqueue.append(queueTrace)
-                        if rootNodes[DD.index(max(DD))].operator=='+':
+                        if rootNodes[DD.index(max(DD))].operator==Operator.PARALLEL:
                             explanation = 'a decrease in precision of concurrency structure'
                         else:
                             explanation = 'a decrease in precision of loop structure'
