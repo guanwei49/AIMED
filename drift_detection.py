@@ -2,6 +2,7 @@ import os.path
 from collections import deque
 from check_conformance import checkConformance
 from gen_new_net import gen_new_net
+from main import ROOT_DIR
 from utils import *
 from pm4py.visualization.petri_net.common import visualize
 from pm4py.objects.log.obj import EventLog
@@ -211,7 +212,7 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
 
                 gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"})
                 actualfilename = 'WN_{}.svg'.format(str(startTime))
-                pn_visualizer.save(gviz, os.path.join('result',actualfilename))
+                pn_visualizer.save(gviz, os.path.join(ROOT_DIR,'result',actualfilename))
 
                 return ( net, initial_marking, final_marking ,k,startTime,actualfilename,localfilename,explanation)
             elif flag == 1 :
@@ -234,13 +235,13 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
                 gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"},
                                        decorations=decorations)
                 localfilename = 'Localization_{}.svg'.format(str(startTime))
-                pn_visualizer.save(gviz, os.path.join('result',localfilename))
+                pn_visualizer.save(gviz, os.path.join(ROOT_DIR,'result',localfilename))
 
                 removeRedundantTransitions(net, initial_marking, final_marking, transition2FreqDict)
 
                 gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"})
                 actualfilename = 'WN_{}.svg'.format(str(startTime))
-                pn_visualizer.save(gviz, os.path.join('result',actualfilename))
+                pn_visualizer.save(gviz, os.path.join(ROOT_DIR,'result',actualfilename))
 
                 return ( net, initial_marking, final_marking ,k+1,startTime,actualfilename,localfilename,explanation)
             elif flag == 2:
@@ -280,7 +281,7 @@ def drift_detection_helper(net, initial_marking, final_marking, log, startpos, w
                                 leaf2transitions,filterrate,startTime)
                         gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"})
                         actualfilename = 'WN_{}.svg'.format(str(startTime))
-                        pn_visualizer.save(gviz, os.path.join('result',actualfilename))
+                        pn_visualizer.save(gviz, os.path.join(ROOT_DIR,'result',actualfilename))
                         return ( net, initial_marking, final_marking ,k+1,startTime,actualfilename,localfilename,explanation)
                     else:
                         candidateCP=None

@@ -10,6 +10,8 @@ from Discovery.inductive import algorithm as inductive_miner
 from pm4py.utils import get_properties
 from pm4py.visualization.petri_net.common import visualize
 from pm4py.objects.log.obj import EventLog, Trace
+
+from main import ROOT_DIR
 from utils import removeRedundantTransitions, get_leaves, reverse_net, get_path_to_leaf, log2X
 from sklearn.ensemble import IsolationForest
 
@@ -245,7 +247,7 @@ def gen_new_net(net, initial_marking, final_marking,tree,log,leaves,leaf2transit
     gviz = visualize.apply(net, initial_marking, final_marking, parameters={"format": "svg"},
                                decorations=decorations)
     localfilename = 'Localization_{}.svg'.format(str(k))
-    pn_visualizer.save(gviz, os.path.join('result',localfilename))
+    pn_visualizer.save(gviz, os.path.join(ROOT_DIR,'result',localfilename))
     ###############################################################
 
     #############################################画出删去有问题部分后的树###############
