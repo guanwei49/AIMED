@@ -1,5 +1,3 @@
-import os
-import uuid
 from math import inf
 from pm4py.objects.petri_net.utils import petri_utils
 from pm4py.objects.petri_net.obj import PetriNet, Marking
@@ -355,13 +353,3 @@ def removeRedundantTransitions(net, initial_marking, final_marking,frequency):
             net.places.remove(p)
 
     return redundantTransitions  ##
-
-def random_filename(filename):
-    '''
-    不带路径的文件名转换为不会重复的字符串
-    :param filename:
-    :return:
-    '''
-    ext = os.path.splitext(filename)[1]#后缀
-    new_filename = uuid.uuid1().hex + ext
-    return new_filename
